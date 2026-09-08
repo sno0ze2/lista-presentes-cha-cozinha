@@ -1,0 +1,19 @@
+1) Crie um projeto no Supabase.
+2) Abra o SQL Editor e execute supabase_setup.sql.
+3) Copie a Project URL e a Publishable key em Project Settings/API.
+4) Abra index.html e substitua COLE_SUA_URL_AQUI e COLE_SUA_PUBLISHABLE_KEY_AQUI.
+5) Publique o index.html em GitHub Pages ou outro host de site estático.
+
+
+CONFIGURAÇÃO DESTE ZIP
+=======================
+O index.html já está configurado com o Project URL e a Publishable Key do projeto Supabase informado durante a configuração.
+Não altere nem adicione a Secret Key ao site.
+
+REALTIME
+========
+O arquivo supabase_setup.sql inclui a ativação da tabela presentes na publicação supabase_realtime. Como o SQL principal pode já ter sido executado no projeto, se o Realtime ainda não estiver ativo, execute no SQL Editor apenas:
+
+alter publication supabase_realtime add table public.presentes;
+
+Se aparecer uma mensagem dizendo que a tabela já está na publicação, está tudo certo.
