@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#fff4e5">
+<title>Lista de Presentes • Fernanda e Samara</title>
+<style>
+:root{
+ --bg:#fff3e2;--paper:#fffdf8;--paper2:#fff8ef;--brown:#5b2b16;--brown2:#7b4326;
+ --orange:#e9621a;--orange2:#f57a25;--line:#edc9a8;--soft:#f8e7d1;--green:#50763a;
+ --greenbg:#e8f1df;--graybg:#f0eee9;--shadow:0 14px 45px rgba(91,43,22,.11)
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{margin:0;background:radial-gradient(circle at 50% 0,#fffaf3 0,#fff3e2 48%,#ffedda 100%);color:var(--brown);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;overflow-x:hidden}
+body:before,body:after{content:"♥";position:fixed;z-index:-1;color:#e98a4b22;font-size:110px;font-family:Georgia;pointer-events:none}
+body:before{left:-25px;top:20%}body:after{right:-20px;bottom:18%}
+.wrap{width:min(1080px,calc(100% - 28px));margin:auto}
+.hero{margin:18px auto 0;border-radius:28px 28px 0 0;overflow:hidden;box-shadow:var(--shadow);background:#fff4e6}
+.hero img{display:block;width:100%;height:auto}
+.panel{position:relative;margin:0 auto 0;background:rgba(255,253,248,.94);border:1px solid #efcba9;border-top:0;border-radius:0 0 28px 28px;padding:22px 24px 25px;box-shadow:var(--shadow);backdrop-filter:blur(5px)}
+.topline{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:15px}
+.heading{display:flex;align-items:center;gap:12px}.heading-icon{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:#f8e1c9;font-size:23px;box-shadow:inset 0 0 0 1px #edc49f}.heading h1{margin:0;font-family:Georgia,serif;font-size:clamp(25px,4vw,34px);letter-spacing:-.5px;color:var(--orange)}
+.counter{font-size:12px;font-weight:800;color:var(--brown2);background:#f8eadb;border:1px solid #efd3b8;border-radius:999px;padding:8px 11px;white-space:nowrap}
+.sub{margin:0 0 15px;color:#76513e;font-size:14px;line-height:1.5}
+.notice{display:flex;gap:12px;align-items:center;background:linear-gradient(90deg,#f8e7d1,#fff0df);border:1px solid #f0d3b5;padding:12px 14px;border-radius:16px;margin-bottom:17px;font-size:13px;line-height:1.45;color:#70462f}.notice b{color:var(--orange)}
+.notice .bulb{font-size:21px;flex:0 0 auto}
+.toolbar{display:flex;gap:10px;margin-bottom:16px}.searchbox{position:relative;flex:1;min-width:0}.searchbox span{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-size:18px;color:#a36d4b;pointer-events:none}.toolbar input{width:100%;height:46px;border:1.5px solid #e9c8a8;border-radius:14px;padding:0 14px 0 42px;background:#fff;box-shadow:0 3px 12px #7a42150b;font-size:15px;color:var(--brown);outline:none;transition:.2s}.toolbar input:focus{border-color:#e9894e;box-shadow:0 0 0 4px #e9894e18}.toolbar button{height:46px;border:0;border-radius:14px;padding:0 17px;font-weight:800;background:#f4e0ca;color:var(--brown);cursor:pointer;transition:.18s}.toolbar button:hover{transform:translateY(-1px);background:#efd5b9}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 12px}
+.gift{display:grid;grid-template-columns:24px 44px minmax(0,1fr) auto;align-items:center;gap:10px;min-width:0;min-height:64px;padding:8px 11px;border:1px solid #efd8c0;border-radius:16px;background:linear-gradient(180deg,#fff,#fffaf5);box-shadow:0 4px 14px #6b35140b;cursor:pointer;transition:transform .16s,box-shadow .16s,border-color .16s,background .16s}.gift:hover:not(.taken){transform:translateY(-2px);border-color:#eab184;box-shadow:0 9px 20px #6b351416}.gift:has(input:checked){border-color:#e86d2d;background:#fff3e7;box-shadow:0 0 0 3px #ef7b3a1c}.gift input{appearance:none;width:21px;height:21px;margin:0;border:1.7px solid #e98a4e;border-radius:6px;background:#fff;display:grid;place-content:center;cursor:pointer}.gift input:checked{background:var(--orange);border-color:var(--orange)}.gift input:checked:after{content:"✓";color:#fff;font-weight:900;font-size:14px;line-height:1}.gift input:disabled{cursor:not-allowed}.icon{width:44px;height:44px;border-radius:13px;background:#f9e4d0;display:grid;place-items:center;font-size:24px;box-shadow:inset 0 0 0 1px #f0cdb0}.name{font-weight:750;font-size:14px;line-height:1.25;min-width:0;overflow-wrap:anywhere}.badge{font-size:10px;font-weight:850;border-radius:999px;padding:6px 8px;background:var(--greenbg);color:var(--green);white-space:nowrap}.taken{background:linear-gradient(180deg,#f4f2ee,#efede8);border-color:#ded9d0;cursor:not-allowed;opacity:.82}.taken .icon{filter:grayscale(.25);background:#ebe8e1}.taken .badge{background:#e5e2dc;color:#777}.taken .name{color:#777}
+.selected{position:sticky;bottom:10px;margin-top:18px;background:linear-gradient(105deg,#5b2b16,#743817);color:#fff;border-radius:18px;padding:12px 13px;display:flex;gap:12px;align-items:center;justify-content:space-between;box-shadow:0 12px 30px #54271338;backdrop-filter:blur(10px);z-index:3}.selected-info{display:flex;align-items:center;gap:10px;min-width:0}.selected-gift{width:39px;height:39px;border-radius:12px;background:#f6a05d22;display:grid;place-items:center;font-size:20px;flex:0 0 auto}.selected span{min-width:0;overflow-wrap:anywhere;font-size:12px;color:#ffe5d1}.selected strong{display:block;color:#fff;font-size:14px;margin-top:2px}.selected button{border:0;border-radius:13px;padding:12px 17px;font-weight:850;background:var(--orange2);color:#fff;cursor:pointer;white-space:nowrap;box-shadow:0 5px 14px #0002}.selected button:hover{background:#ff8b3b}.status{margin:9px 3px 0;min-height:20px;font-size:13px;color:#76513e}
+.list{margin-top:23px;border-top:1px solid #f0d9c2;padding-top:20px}.list-title{display:flex;align-items:center;gap:9px;margin:0 0 12px;color:var(--orange);font-family:Georgia,serif;font-size:23px}.reserved-wrap{display:grid;gap:8px}.reserved{display:grid;grid-template-columns:40px minmax(0,1fr) auto 18px;align-items:center;gap:11px;padding:10px 12px;border:1px solid #efd9c2;border-radius:14px;background:#fffaf4}.reserved-icon{width:40px;height:40px;border-radius:11px;background:#f8e2cf;display:grid;place-items:center;font-size:21px}.reserved .present{font-weight:750;min-width:0;overflow-wrap:anywhere}.reserved .person{color:#876c5a;font-size:13px;max-width:220px;text-align:right;overflow-wrap:anywhere}.reserved .arrow{color:#b58361;font-size:20px}.empty{color:#8a705f;padding:13px;border:1px dashed #e4c8ac;border-radius:13px;text-align:center;background:#fffaf4;font-size:13px}
+footer{text-align:center;color:#9b7863;padding:20px 0 30px;font-size:12px}.heart{color:#e9621a}
+.modal{position:fixed;inset:0;background:rgba(48,24,13,.52);display:none;align-items:center;justify-content:center;padding:18px;z-index:10}.modal.open{display:flex}.card{width:min(450px,100%);background:#fffdf8;border:1px solid #efcba9;padding:22px;border-radius:22px;box-shadow:0 25px 80px #0005;animation:pop .18s ease-out}.card .modal-icon{width:48px;height:48px;border-radius:15px;background:#f8e0ca;display:grid;place-items:center;font-size:24px;margin-bottom:10px}.card h2{color:var(--orange);font-family:Georgia,serif;margin:0 0 7px;font-size:27px}.card p{margin:0;color:#76513e}.card input{margin-top:15px;width:100%;height:48px;border:1.5px solid #e9c8a8;border-radius:13px;padding:0 13px;font-size:16px;outline:none}.card input:focus{border-color:#e9894e;box-shadow:0 0 0 4px #e9894e18}.actions{display:flex;justify-content:flex-end;gap:9px;margin-top:14px}.actions button{border:0;border-radius:13px;padding:12px 15px;font-weight:800;cursor:pointer}.actions .secondary{background:#f2dfcd;color:var(--brown)}.actions #confirm{background:var(--orange);color:#fff}@keyframes pop{from{opacity:0;transform:translateY(8px) scale(.98)}to{opacity:1;transform:none}}
+@media(max-width:760px){.wrap{width:calc(100% - 14px)}.hero{margin-top:7px;border-radius:20px 20px 0 0}.panel{padding:16px 12px 18px;border-radius:0 0 20px 20px}.topline{align-items:flex-start}.heading{gap:9px}.heading-icon{width:39px;height:39px;border-radius:12px;font-size:20px}.heading h1{font-size:25px}.counter{font-size:10px;padding:7px 8px}.sub{font-size:12px;margin-left:48px;margin-top:-6px}.notice{font-size:12px;padding:10px 11px}.toolbar{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:7px}.toolbar button{padding:0 12px;font-size:12px}.grid{grid-template-columns:1fr;gap:8px}.gift{grid-template-columns:23px 42px minmax(0,1fr) auto;min-height:62px;padding:8px 9px;gap:8px;border-radius:14px}.icon{width:42px;height:42px;border-radius:12px;font-size:22px}.name{font-size:13px}.badge{font-size:9px;padding:5px 6px}.selected{bottom:7px;border-radius:16px;padding:10px;gap:8px}.selected-info{gap:8px}.selected-gift{width:35px;height:35px}.selected button{padding:10px 12px;font-size:12px}.list{margin-top:19px}.list-title{font-size:21px}.reserved{grid-template-columns:38px minmax(0,1fr) auto;gap:9px}.reserved-icon{width:38px;height:38px}.reserved .person{max-width:115px;font-size:12px}.reserved .arrow{display:none}footer{padding-bottom:22px}}
+@media(max-width:390px){.counter{display:none}.sub{margin-left:0;margin-top:2px}.gift{grid-template-columns:22px 40px minmax(0,1fr);position:relative;padding-right:76px}.badge{position:absolute;right:8px;top:50%;transform:translateY(-50%)}.selected{align-items:flex-start}.selected button{white-space:normal}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hero"><img src="hero.png" alt="Lista de Presentes de Fernanda e Samara"></div>
+  <section class="panel">
+    <div class="topline">
+      <div class="heading"><div class="heading-icon">🎁</div><h1>Escolha seu presente</h1></div>
+      <div class="counter" id="counter">Carregando...</div>
+    </div>
+    <p class="sub">Escolha um presente e confirme seu nome. Quando alguém resgatar, o item fica indisponível para todos. 💕</p>
+    <div class="notice"><span class="bulb">💡</span><div><b>Como funciona:</b> escolha um item → <b>Resgatar presente</b> → informe seu nome → confirme. ❤️</div></div>
+    <div class="toolbar"><div class="searchbox"><span>⌕</span><input id="search" placeholder="Procurar presente..." autocomplete="off"></div><button class="secondary" id="reload">↻ Atualizar</button></div>
+    <div id="grid" class="grid"></div>
+    <div class="selected"><div class="selected-info"><div class="selected-gift">🎁</div><span>Você selecionou:<strong id="sel">0 presentes</strong></span></div><button id="rescue">Resgatar presente</button></div>
+    <div id="status" class="status"></div>
+    <div class="list"><h2 class="list-title">❤️ Presentes já escolhidos</h2><div id="reserved" class="reserved-wrap"></div></div>
+  </section>
+  <footer>Com muito carinho, Fernanda e Samara <span class="heart">♥</span></footer>
+</div>
+<div class="modal" id="modal"><div class="card"><div class="modal-icon">🎁</div><h2>Quase lá! 💕</h2><p>Você escolheu: <b id="gift"></b></p><input id="name" maxlength="60" placeholder="Seu nome" autocomplete="name"><div class="actions"><button class="secondary" id="cancel">Cancelar</button><button id="confirm">Confirmar resgate</button></div></div></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const SUPABASE_URL="https://cphthoghrvijkquckhmd.supabase.co";
+const SUPABASE_KEY="sb_publishable_i7Pe1ZEknQ6C72PL1ttQHw_jWSlnKnh";
+const supabaseClient=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+let gifts=[],selected=null;
+const iconMap={
+ "Jogo de talher":"🍴","Jogo de copo":"🥛","Jogo de prato":"🍽️","Jogo americano":"▧","Porta mantimentos":"🫙","Canecas/xícaras":"☕","Bacia/bowl":"🥣","Potes (tamanhos diversos)":"🫙","Porta detergente":"🧴","Pano de prato":"🧻","Tábua de carne":"🔪","Copo medidor":"🥛","Colher de arroz":"🥄","Concha":"🥄","Peneira":"🧺","Porta temperos":"🧂","Porta papel":"🧻","Saleiro":"🧂","Açucareiro":"🍚","Saboneteira":"🧼","Porta escovas":"🪥","Jogo de tapetes":"▤","Vassoura/rodo/pá":"🧹","Pregador de roupa":"🧷","Balde":"🪣","Escova de roupa":"🧽"
+};
+function status(t){document.getElementById("status").textContent=t||""}
+async function load(){
+ const {data,error}=await supabaseClient.from("presentes").select("presente,nome,reservado_em").order("presente");
+ if(error){status("❌ Não foi possível carregar a lista.");console.error(error);return}
+ gifts=data||[];render();
+}
+function render(){
+ const q=document.getElementById("search").value.toLowerCase().trim(),grid=document.getElementById("grid");grid.innerHTML="";
+ const filtered=gifts.filter(x=>x.presente.toLowerCase().includes(q));
+ filtered.forEach(x=>{
+   const l=document.createElement("label");l.className="gift"+(x.nome?" taken":"");
+   l.innerHTML='<input type="checkbox"><span class="icon"></span><span class="name"></span><span class="badge"></span>';
+   l.querySelector(".name").textContent=x.presente;l.querySelector(".icon").textContent=iconMap[x.presente]||"🎁";
+   l.querySelector(".badge").textContent=x.nome?"Já escolhido":"Disponível";
+   const cb=l.querySelector("input");cb.disabled=!!x.nome;cb.checked=selected===x.presente;
+   cb.onchange=()=>{selected=cb.checked?x.presente:null;render()};grid.appendChild(l);
+ });
+ const available=gifts.filter(x=>!x.nome).length;
+ document.getElementById("counter").textContent=`${available} disponíveis · ${gifts.length-available} escolhidos`;
+ document.getElementById("sel").textContent=selected?selected:"0 presentes";
+ const box=document.getElementById("reserved");box.innerHTML="";const chosen=gifts.filter(x=>x.nome);
+ if(!chosen.length)box.innerHTML='<div class="empty">Ainda ninguém escolheu um presente. 💕</div>';
+ chosen.forEach(x=>{const r=document.createElement("div");r.className="reserved";r.innerHTML='<div class="reserved-icon"></div><div class="present"></div><div class="person"></div><div class="arrow">›</div>';r.querySelector('.reserved-icon').textContent=iconMap[x.presente]||"🎁";r.querySelector('.present').textContent=x.presente;r.querySelector('.person').textContent=x.nome;box.appendChild(r)})
+}
+document.getElementById("search").oninput=render;
+document.getElementById("reload").onclick=load;
+document.getElementById("rescue").onclick=()=>{
+ if(!selected)return alert("Escolha um presente primeiro. 😊");
+ const x=gifts.find(g=>g.presente===selected);if(!x||x.nome){selected=null;render();return alert("Esse presente já foi resgatado.")}
+ document.getElementById("gift").textContent=selected;document.getElementById("name").value="";document.getElementById("modal").classList.add("open");setTimeout(()=>document.getElementById("name").focus(),60)
+};
+document.getElementById("cancel").onclick=()=>document.getElementById("modal").classList.remove("open");
+document.getElementById("modal").onclick=e=>{if(e.target.id==="modal")document.getElementById("modal").classList.remove("open")};
+document.getElementById("confirm").onclick=async()=>{
+ const name=document.getElementById("name").value.trim();if(!name)return alert("Digite seu nome.");
+ const gift=selected;const {error}=await supabaseClient.rpc("resgatar_presente",{p_presente:gift,p_nome:name});
+ if(error){document.getElementById("modal").classList.remove("open");selected=null;await load();return alert(error.message.includes("já foi")?"Esse presente acabou de ser resgatado por outra pessoa! 😅":"Não foi possível resgatar. Tente novamente.")}
+ document.getElementById("modal").classList.remove("open");selected=null;status("✅ Presente resgatado com sucesso!");await load();
+};
+supabaseClient.channel("presentes-live").on("postgres_changes",{event:"*",schema:"public",table:"presentes"},()=>load()).subscribe();
+load();
+</script>
+</body>
+</html>
